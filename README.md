@@ -27,15 +27,6 @@ src/
 ├── docker-compose.yml
 └── pom.xml
 
-📊 Entity Employee
-Field	    Type	        Keterangan
-id	        Long	        Auto increment
-name	    String	        Nama lengkap (wajib)
-email	    String	        Email (unik & wajib)
-position	String	        Jabatan karyawan (wajib)
-salary	    Double	        Gaji karyawan (> 0)
-createdAt	LocalDateTime	Waktu data dibuat (auto)
-
 🔌 Endpoint API With Postman 
 buat manual request ke endpoint yang tersedia
 
