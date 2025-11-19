@@ -1,31 +1,24 @@
 🧩 Employee Management REST API
 
 📋 Deskripsi Proyek
+
 REST API sederhana untuk mengelola data karyawan di perusahaan Juke. Dibangun menggunakan Java 17 + Spring Boot dengan arsitektur MVC, dan dapat dijalankan menggunakan Docker.
 
 🚀 Fitur yang Tersedia
+
 ✅ CRUD Operations lengkap untuk data karyawan
+
 ✅ Validasi input (email unik, salary > 0, dll)
+
 ✅ Global Exception Handling
+
 ✅ Dokumentasi API dengan Swagger UI
+
 ✅ Docker Support (Dockerfile + docker-compose)
+
 ✅ Struktur MVC yang rapi dan terorganisir
 
 🏗️ Struktur Project
-
-src/
-├── main/
-│   ├── java/com/juke/employee/
-│   │   ├── controller/     # EmployeeController (REST endpoints)
-│   │   ├── service/        # EmployeeService (business logic)
-│   │   ├── repository/     # EmployeeRepository (data access)
-│   │   ├── model/          # Employee (entity)
-│   │   └── exception/      # GlobalExceptionHandler
-│   └── resources/
-│       └── application.properties
-├── Dockerfile
-├── docker-compose.yml
-└── pom.xml
 
 🔌 Endpoint API With Postman 
 buat manual request ke endpoint yang tersedia
