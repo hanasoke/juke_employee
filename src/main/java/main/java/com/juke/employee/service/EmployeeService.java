@@ -2,10 +2,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.juke.employee.service;
+package main.java.com.juke.employee.service;
 
-import com.juke.employee.model.Employee;
-import com.juke.employee.repository.EmployeeRepository;
+import main.java.com.juke.employee.model.Employee;
+import main.java.com.juke.employee.repository.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

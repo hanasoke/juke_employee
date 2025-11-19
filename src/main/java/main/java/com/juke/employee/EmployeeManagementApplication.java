@@ -1,4 +1,4 @@
-package com.juke.employee;
+package main.java.com.juke.employee;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

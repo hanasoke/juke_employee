@@ -2,10 +2,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.juke.employee.controller;
+package main.java.com.juke.employee.controller;
 
-import com.juke.employee.model.Employee;
-import com.juke.employee.service.EmployeeService;
+import main.java.com.juke.employee.model.Employee;
+import main.java.com.juke.employee.service.EmployeeService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -38,7 +38,7 @@ public class EmployeeController {
     @PostMapping
     public ResponseEntity<?> createEmployee(@Valid @RequestBody Employee employee) {
         try {
-            Employee savedEmployee = employeeService.createEmployee(employee);
+            Employee savedEmployee = (Employee) employeeService.createEmployee(employee);
             return ResponseEntity.status(HttpStatus.CREATED).body(savedEmployee);
         } catch (RuntimeException e) {
             return ResponseEntity.badRequest().body(e.getMessage());
@@ -48,7 +48,7 @@ public class EmployeeController {
     @PutMapping("/{id}")
     public ResponseEntity<?> updateEmployee(@PathVariable Long id, @Valid @RequestBody Employee employeeDetails) {
         try {
-            Employee updatedEmployee = employeeService.updateEmployee(id, employeeDetails);
+            Employee updatedEmployee = (Employee) employeeService.updateEmployee(id, employeeDetails);
             return ResponseEntity.ok(updatedEmployee);
         } catch (RuntimeException e) {
             return ResponseEntity.badRequest().body(e.getMessage());
