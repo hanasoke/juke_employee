@@ -20,8 +20,7 @@ REST API sederhana untuk mengelola data karyawan di perusahaan Juke. Dibangun me
 
 🏗️ Struktur Project
 
-🔌 Endpoint API With Postman 
-buat manual request ke endpoint yang tersedia
+Berikut ini cara melakukan Endpoint API Dengan Postman bisa manual request ke endpoint yang tersedia
 
 📖 Get All Employees
 Method: GET
@@ -76,14 +75,7 @@ SpringDoc OpenAPI (Swagger)
 Docker
 Maven
 
-🚀 Cara Menjalankan
-Prerequisites
-Java 17
-Maven 3.6+
-Docker (opsional)
-
 Menjalankan dengan Docker
-
 # Build image Docker
 docker build -t employee-management .
 
@@ -140,6 +132,9 @@ Base Image: OpenJDK 17
 Database: H2 (in-memory)
 
 👨‍💻 Developer
+
 Nama: Hanas Bayu Pratama
-Posisi: Candidate Developer Juke
+
+Posisi: Kadidat Developer Juke
+
 Teknologi: Java, Spring Boot, Docker
