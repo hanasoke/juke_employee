@@ -46,9 +46,9 @@ Response: 200 OK
 [
   {
     "id": 1,
-    "name": "John Doe",
-    "email": "john.doe@juke.com",
-    "position": "Software Engineer",
+    "name": "Saitama",
+    "email": "saitama@gmail.com",
+    "position": "PHP Developer",
     "salary": 50000.0,
     "createdAt": "2024-01-15T10:30:00"
   }
@@ -64,10 +64,10 @@ Method: POST
 URL: /api/employees
 Body:
 {
-  "name": "John Doe",
-  "email": "john.doe@juke.com",
-  "position": "Software Engineer",
-  "salary": 50000
+  "name": "Saitama",
+  "email": "saitama@gmail.com",
+  "position": "PHP Developer",
+  "salary": 560000
 }
 Response: 201 Created atau 400 Bad Request
 
@@ -125,10 +125,10 @@ Create Employee:
 curl -X POST http://localhost:8080/api/employees \
   -H "Content-Type: application/json" \
   -d '{
-    "name": "John Doe",
-    "email": "john.doe@juke.com",
-    "position": "Software Engineer",
-    "salary": 50000
+    "name": "Saitama",
+    "email": "saitama@gmail.com",
+    "position": "PHP Developer",
+    "salary": 5000000
   }'
 
 Get All Employees:
@@ -141,10 +141,10 @@ Update Employee:
 curl -X PUT http://localhost:8080/api/employees/1 \
   -H "Content-Type: application/json" \
   -d '{
-    "name": "John Doe Updated",
-    "email": "john.updated@juke.com",
-    "position": "Senior Software Engineer",
-    "salary": 60000
+    "name": "Saitama",
+    "email": "saitama@gmail.com",
+    "position": "Senior PHP Developer",
+    "salary": 6500000
   }'
 
 Delete Employee:
