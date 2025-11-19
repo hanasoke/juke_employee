@@ -23,22 +23,35 @@ public class EmployeeController {
     private EmployeeService employeeService;
 
     @GetMapping
-    public ResponseEntity<List<Employee>> getAllEmployees() {
-        List<Employee> employees = employeeService.getAllEmployees();
-        return ResponseEntity.ok(employees);
+    public ResponseEntity<?> getAllEmployees() {
+        try {
+            List<Employee> employees = employeeService.getAllEmployees();
+            return ResponseEntity.ok(employees);
+        } catch (RuntimeException e) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
+        }
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Employee> getEmployeeById(@PathVariable Long id) {
-        Optional<Employee> employee = employeeService.getEmployeeById(id);
-        return employee.map(ResponseEntity::ok)
-                      .orElse(ResponseEntity.notFound().build());
+    public ResponseEntity<?> getEmployeeById(@PathVariable Long id) {
+        try {
+            Optional<Employee> employee = employeeService.getEmployeeById(id);
+            if (employee.isPresent()) {
+                return ResponseEntity.ok(employee.get());
+            } else {
+                return ResponseEntity.status(HttpStatus.NOT_FOUND)
+                    .body("Employee not found with id: " + id);
+            }
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                .body("" + e.getMessage());
+        }
     }
 
     @PostMapping
     public ResponseEntity<?> createEmployee(@Valid @RequestBody Employee employee) {
         try {
-            Employee savedEmployee = (Employee) employeeService.createEmployee(employee);
+            Employee savedEmployee = employeeService.createEmployee(employee);
             return ResponseEntity.status(HttpStatus.CREATED).body(savedEmployee);
         } catch (RuntimeException e) {
             return ResponseEntity.badRequest().body(e.getMessage());
@@ -46,9 +59,9 @@ public class EmployeeController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<?> updateEmployee(@PathVariable Long id, @Valid @RequestBody Employee employeeDetails) {
+    public ResponseEntity<?> updateEmployee(@PathVariable Long id, @RequestBody Employee employeeDetails) {
         try {
-            Employee updatedEmployee = (Employee) employeeService.updateEmployee(id, employeeDetails);
+            Employee updatedEmployee = employeeService.updateEmployee(id, employeeDetails);
             return ResponseEntity.ok(updatedEmployee);
         } catch (RuntimeException e) {
             return ResponseEntity.badRequest().body(e.getMessage());

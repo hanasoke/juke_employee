@@ -30,6 +30,15 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(RuntimeException.class)
     public ResponseEntity<String> handleRuntimeException(RuntimeException ex) {
+        // Check if it's a "not found" error
+        if (ex.getMessage().contains("not found") || ex.getMessage().contains("not found")) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(ex.getMessage());
+        }
         return ResponseEntity.badRequest().body(ex.getMessage());
+    }
+
+    @ExceptionHandler(NumberFormatException.class)
+    public ResponseEntity<String> handleNumberFormatException(NumberFormatException ex) {
+        return ResponseEntity.badRequest().body("Invalid salary format. Salary must be a valid number (e.g., 50000 or 50000.50)");
     }
 }

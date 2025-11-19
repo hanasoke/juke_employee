@@ -53,6 +53,16 @@ public class Employee {
         this.salary = salary;
     }
 
+    // Custom validation method for salary
+    public void validateSalary() {
+        if (this.salary == null) {
+            throw new RuntimeException("Salary is mandatory");
+        }
+        if (this.salary <= 0) {
+            throw new RuntimeException("Salary must be greater than 0");
+        }
+    }
+
     // Getters and Setters
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
@@ -70,7 +80,5 @@ public class Employee {
     public void setSalary(Double salary) { this.salary = salary; }
 
     public LocalDateTime getCreatedAt() { return createdAt; }
-    public void setCreatedAt(LocalDateTime createdAt) { this.createdAt = createdAt; 
-    
-    }
+    public void setCreatedAt(LocalDateTime createdAt) { this.createdAt = createdAt; }
 }
