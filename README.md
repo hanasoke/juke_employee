@@ -1,43 +1,26 @@
 🧩 Employee Management REST API
 
 📋 Deskripsi Proyek
+
 REST API sederhana untuk mengelola data karyawan di perusahaan Juke. Dibangun menggunakan Java 17 + Spring Boot dengan arsitektur MVC, dan dapat dijalankan menggunakan Docker.
 
 🚀 Fitur yang Tersedia
+
 ✅ CRUD Operations lengkap untuk data karyawan
+
 ✅ Validasi input (email unik, salary > 0, dll)
+
 ✅ Global Exception Handling
+
 ✅ Dokumentasi API dengan Swagger UI
+
 ✅ Docker Support (Dockerfile + docker-compose)
+
 ✅ Struktur MVC yang rapi dan terorganisir
 
 🏗️ Struktur Project
 
-src/
-├── main/
-│   ├── java/com/juke/employee/
-│   │   ├── controller/     # EmployeeController (REST endpoints)
-│   │   ├── service/        # EmployeeService (business logic)
-│   │   ├── repository/     # EmployeeRepository (data access)
-│   │   ├── model/          # Employee (entity)
-│   │   └── exception/      # GlobalExceptionHandler
-│   └── resources/
-│       └── application.properties
-├── Dockerfile
-├── docker-compose.yml
-└── pom.xml
-
-📊 Entity Employee
-Field	    Type	        Keterangan
-id	        Long	        Auto increment
-name	    String	        Nama lengkap (wajib)
-email	    String	        Email (unik & wajib)
-position	String	        Jabatan karyawan (wajib)
-salary	    Double	        Gaji karyawan (> 0)
-createdAt	LocalDateTime	Waktu data dibuat (auto)
-
-🔌 Endpoint API With Postman 
-buat manual request ke endpoint yang tersedia
+Berikut ini cara melakukan Endpoint API Dengan Postman bisa manual request ke endpoint yang tersedia
 
 📖 Get All Employees
 Method: GET
@@ -92,14 +75,7 @@ SpringDoc OpenAPI (Swagger)
 Docker
 Maven
 
-🚀 Cara Menjalankan
-Prerequisites
-Java 17
-Maven 3.6+
-Docker (opsional)
-
 Menjalankan dengan Docker
-
 # Build image Docker
 docker build -t employee-management .
 
@@ -156,6 +132,9 @@ Base Image: OpenJDK 17
 Database: H2 (in-memory)
 
 👨‍💻 Developer
+
 Nama: Hanas Bayu Pratama
-Posisi: Candidate Developer Juke
+
+Posisi: Kadidat Developer Juke
+
 Teknologi: Java, Spring Boot, Docker
