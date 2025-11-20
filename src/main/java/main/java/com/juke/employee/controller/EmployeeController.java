@@ -5,7 +5,6 @@
 package main.java.com.juke.employee.controller;
 
 import main.java.com.juke.employee.model.Employee;
-import main.java.com.juke.employee.model.EmployeeRequest;
 import main.java.com.juke.employee.service.EmployeeService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +19,6 @@ import java.util.Optional;
 @RequestMapping("/api/employees")
 @CrossOrigin(origins = "*")
 public class EmployeeController {
-    
     @Autowired
     private EmployeeService employeeService;
 
@@ -51,9 +49,8 @@ public class EmployeeController {
     }
 
     @PostMapping
-    public ResponseEntity<?> createEmployee(@RequestBody EmployeeRequest employeeRequest) {
+    public ResponseEntity<?> createEmployee(@Valid @RequestBody Employee employee) {
         try {
-            Employee employee = employeeRequest.toEmployee();
             Employee savedEmployee = employeeService.createEmployee(employee);
             return ResponseEntity.status(HttpStatus.CREATED).body(savedEmployee);
         } catch (RuntimeException e) {
@@ -62,34 +59,12 @@ public class EmployeeController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<?> updateEmployee(@PathVariable Long id, @RequestBody EmployeeRequest employeeRequest) {
+    public ResponseEntity<?> updateEmployee(@PathVariable Long id, @RequestBody Employee employeeDetails) {
         try {
-            // Convert untuk partial update
-            Employee employeeDetails = new Employee();
-            
-            if (employeeRequest.getName() != null) {
-                employeeDetails.setName(employeeRequest.getName());
-            }
-            if (employeeRequest.getEmail() != null) {
-                employeeDetails.setEmail(employeeRequest.getEmail());
-            }
-            if (employeeRequest.getPosition() != null) {
-                employeeDetails.setPosition(employeeRequest.getPosition());
-            }
-            if (employeeRequest.getSalary() != null) {
-                try {
-                    Double salaryValue = Double.parseDouble(employeeRequest.getSalary());
-                    employeeDetails.setSalary(salaryValue);
-                } catch (NumberFormatException e) {
-                    return ResponseEntity.badRequest()
-                        .body("Invalid salary format. Salary must be a valid number. Received: " + employeeRequest.getSalary());
-                }
-            }
-            
             Employee updatedEmployee = employeeService.updateEmployee(id, employeeDetails);
-            return  ResponseEntity.ok(updatedEmployee);
+            return ResponseEntity.ok(updatedEmployee);
         } catch (RuntimeException e) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
+            return ResponseEntity.badRequest().body(e.getMessage());
         }
     }
 
@@ -99,13 +74,7 @@ public class EmployeeController {
             employeeService.deleteEmployee(id);
             return ResponseEntity.ok().body("Employee deleted successfully");
         } catch (RuntimeException e) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
+            return ResponseEntity.badRequest().body(e.getMessage());
         }
-    }
-    
-    // Health check endpoint 
-    @GetMapping("/health")
-    public ResponseEntity<String> healthCheck() {
-        return ResponseEntity.ok("Employee Management API is running!");
     }
 }
