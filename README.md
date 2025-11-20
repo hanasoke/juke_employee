@@ -133,7 +133,7 @@ Database: H2 (in-memory)
 
 Dokumentasi Update: Docker Compose dengan Database H2
 
-Siang Mas,
+Malam Mas,
 Sudah saya tambahkan database H2 di Docker Compose seperti yang diminta. Sekarang tinggal run and test saja - tidak perlu setup manual apapun! 🚀
 
 Yang Sudah Ditambahkan
@@ -141,7 +141,9 @@ Yang Sudah Ditambahkan
 Docker Compose Lengkap dengan Database
 
 services:
+
   employee-db:     # ✅ Database H2
+
   employee-api:    # ✅ Aplikasi Spring Boot
 
 Fitur yang Tersedia:
