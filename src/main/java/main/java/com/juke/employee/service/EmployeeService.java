@@ -33,10 +33,7 @@ public class EmployeeService {
         return employee;
     }
 
-    public Employee createEmployee(Employee employee) {
-        // Validate salary
-        employee.validateSalary();
-        
+    public Employee createEmployee(Employee employee) {        
         // Check if email already exists
         if (employeeRepository.existsByEmail(employee.getEmail())) {
             throw new RuntimeException("Email already exists: " + employee.getEmail());
