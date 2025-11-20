@@ -131,6 +131,41 @@ Port: 8080
 Base Image: OpenJDK 17
 Database: H2 (in-memory)
 
+Dokumentasi Update: Docker Compose dengan Database H2
+
+Siang Mas,
+Sudah saya tambahkan database H2 di Docker Compose seperti yang diminta. Sekarang tinggal run and test saja - tidak perlu setup manual apapun! 🚀
+
+Yang Sudah Ditambahkan
+
+Docker Compose Lengkap dengan Database
+
+services:
+  employee-db:     # ✅ Database H2
+  employee-api:    # ✅ Aplikasi Spring Boot
+
+Fitur yang Tersedia:
+
+✅ Database H2 dalam container terpisah
+
+✅ Data persistence - data tersimpan di Docker volume
+
+✅ Health check endpoint untuk monitoring
+
+✅ Error handling yang comprehensive
+
+Hanya 1 Perintah Ini
+
+docker-compose up --build
+
+H2 Database Console - http://localhost:8082
+
+Username: sa
+
+Password: password
+
+JDBC URL: jdbc:h2:tcp://localhost:1521/~/employeedb
+
 👨‍💻 Developer
 
 Nama: Hanas Bayu Pratama
